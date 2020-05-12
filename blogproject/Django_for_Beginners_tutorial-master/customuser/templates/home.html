@@ -1,0 +1,17 @@
+<!-- templates/home.html -->
+<!DOCTYPE html>
+
+{%  extends 'base.html' %}
+
+{%  block title %} Home page {%  endblock %}
+
+{%  block content %}
+    <div clas="jumbotron">
+        <h1 class="display-4"> Newspaper application </h1>
+        <p class="lead"> Built using Django 2.0. </p>
+        <p> <a class="btn btn-primary btn-lg" href="{% url 'article_list' %}" role="button">
+            View articles
+            </a>
+        </p>
+    </div>
+{%  endblock content %}

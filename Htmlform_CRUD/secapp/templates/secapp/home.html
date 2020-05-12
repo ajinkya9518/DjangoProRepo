@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+<table border="2">
+<h1>hello pycharm</h1>
+{% if data %}
+     <thead>
+        <th>name of state</th>
+        <th>state_code</th>
+        <th>name_of_cm</th>
+        <th>Edit_state</th>
+        <th>delete_state</th>
+
+     </thead>
+{% for i in data %}
+<tr>
+        <td> {{i.statename}}</td>
+         <td>{{i.statecode}}</td>
+         <td>{{i.state_cm}}</td>
+    <td><a href="/update/{{i.id}}/">Edit</a></td>
+    <td><a href="/deletestate/{{i.id}}/">Delete</a></td>
+
+      </tr>
+    {%endfor%}
+{%endif%}
+</table>
+    </center>
+</body>
+</html>

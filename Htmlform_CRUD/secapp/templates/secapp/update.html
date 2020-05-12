@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/updatestate/{{data.id}}/" method="POST">{%csrf_token%}
+    state_name:-<input type="text" name="var1" value="{{data.statename}}"><br><br>
+    state_code:-<input type="text" name="var2" value="{{data.statecode}}"><br><br>
+    state_cm:-  <input type="text" name="var3" value="{{data.state_cm}}"><br><br>
+    <button type="submit" name="button">submit</button>
+</form>
+
+
+</body>
+</html>

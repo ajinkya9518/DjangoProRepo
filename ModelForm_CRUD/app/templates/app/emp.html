@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+<h1>HELLLO...PYCHARM</h1>
+<table border="3">
+    <thead>
+    <th>Employee_name</th>
+    <th>Employee_marks</th>
+    <th>Employee_addr</th>
+    <th>Employee_add</th>
+    <th>Employee_delete</th>
+
+    </thead>
+    {% for i in empdata %}
+
+    <tr>
+
+        <td>{{i.name}}</td>
+        <td>{{i.marks}}</td>
+        <td>{{i.addr}}</td>
+        <td><a href="/update/{{i.id}}/">Editdata</a></td>
+        <td><a href="/delete/{{i.id}}/">deletedata</a></td>
+
+    </tr>
+
+     {% endfor %}
+</table>
+<a href="/addemp/">Add_Employee</a><br><br>
+    <form action="/logout/" method="POST">
+        {% csrf_token %}
+        <button type="submit" name="button">Logout</button>
+    </form>
+    {% if messages %}
+    {% for msg in messages %}
+        {{msg}}
+    {% endfor %}
+    {% endif %}
+    </center>
+</body>
+</html>

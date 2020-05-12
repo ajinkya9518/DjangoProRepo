@@ -1,0 +1,38 @@
+<!-- templates/article_list.html -->
+
+{%  extends 'base.html' %}
+
+
+{% block title %} Articles {%  endblock %}
+
+{%  block content %}
+    {%  for article in object_list %}
+        <div class="card">
+            <div class="card-header">
+                <span class="font-weight-bold"> {{ article.title }} </span>
+                <span class="text-muted">Author: {{ article.author }}, Date: {{ article.date }} </span>
+            </div>
+
+            <div class="card-body">
+                <p> {{ article.body }} </p>
+                <a href="{% url 'article_edit' article.pk %}">Edit</a> |
+                <a href="{% url 'article_delete' article.pk %}">Delete</a>
+            </div>
+
+            <div class="card-footer">
+               {%  for comment in article.comments.all %}
+                   <p>
+                   <!-- middot = middle dot. from here: https://www.w3schools.com/charsets/ref_html_entities_4.asp -->
+                   <span class="font-weight-bold"> Author: {{ comment.author }} </span>
+                       Comment: {{  comment  }}
+
+                   </p>
+
+                {% endfor %}
+            </div>
+        </div>
+
+    </br>
+
+    {%  endfor %}
+{%  endblock content %}
